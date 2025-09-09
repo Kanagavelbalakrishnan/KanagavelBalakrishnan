@@ -60,6 +60,49 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        /* Custom styles for contact icons */
+        .contact-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .contact-card .icon-circle {
+            background-color: #558B2F; /* Green background for the circle */
+            color: #ffffff; /* White icon color */
+            border-radius: 50%;
+            width: 64px; /* Adjust size as needed */
+            height: 64px; /* Adjust size as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 2.25rem; /* Icon size */
+            transition: background-color 0.3s ease;
+        }
+        .contact-card:hover .icon-circle {
+            background-color: #8BC34A; /* Lighter green on hover */
+        }
+        .contact-card .title {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #333333; /* Darker grey for title */
+            margin-bottom: 0.25rem;
+        }
+        .contact-card .detail {
+            font-size: 0.875rem; /* text-sm */
+            color: #6B7280; /* Gray for details */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -140,7 +183,7 @@
             
             <section id="education" class="mb-20 pt-16 -mt-16">
                 <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Education</h2>
-                <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
                     <p class="text-xl font-semibold text-gray-800">Bachelor of Engineering (CSE)</p>
                     <p class="text-md text-gray-600">Anna University</p>
                     <p class="text-sm text-gray-500 mt-1">2016 - 2020 &bull; CGPA: 7.2/10</p>
@@ -150,23 +193,28 @@
             <section id="contact" class="mb-20 pt-16 -mt-16">
                 <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Contact Me</h2>
                 <p class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed mb-8">
-                    I'm always open to discussing new opportunities, collaborations, or just connecting with fellow professionals. Feel free to reach out to me via any of the channels below.
+                    I'm always open to discussing new opportunities, collaborations, or just connecting with fellow professionals. Feel free to reach out to me via any of the channels below. You can also explore my projects on GitHub.
                 </p>
-                <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <a href="mailto:BSKANAGAVEL@GMAIL.COM" class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center transition-transform duration-300 card-hover">
-                        <i class="fas fa-envelope text-4xl text-green-700 mb-3"></i>
-                        <span class="text-lg font-semibold text-gray-800">Email</span>
-                        <span class="text-sm text-gray-500">BSKANAGAVEL@GMAIL.COM</span>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                    <a href="mailto:BSKANAGAVEL@GMAIL.COM" class="contact-card">
+                        <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                        <span class="title">Email</span>
+                        <span class="detail">BSKANAGAVEL@GMAIL.COM</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/kanagavelb/" target="_blank" class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center transition-transform duration-300 card-hover">
-                        <i class="fab fa-linkedin-in text-4xl text-green-700 mb-3"></i>
-                        <span class="text-lg font-semibold text-gray-800">LinkedIn</span>
-                        <span class="text-sm text-gray-500">in/kanagavelb/</span>
+                    <a href="https://www.linkedin.com/in/kanagavelb/" target="_blank" class="contact-card">
+                        <div class="icon-circle"><i class="fab fa-linkedin-in"></i></div>
+                        <span class="title">LinkedIn</span>
+                        <span class="detail">in/kanagavelb/</span>
                     </a>
-                    <a href="tel:+917094727176" class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center transition-transform duration-300 card-hover">
-                        <i class="fas fa-phone-alt text-4xl text-green-700 mb-3"></i>
-                        <span class="text-lg font-semibold text-gray-800">Phone</span>
-                        <span class="text-sm text-gray-500">+91-7094727176</span>
+                    <a href="https://github.com/Kanagavelbalakrishnan" target="_blank" class="contact-card">
+                        <div class="icon-circle"><i class="fab fa-github"></i></div>
+                        <span class="title">GitHub</span>
+                        <span class="detail">/Kanagavelbalakrishnan</span>
+                    </a>
+                    <a href="tel:+917094727176" class="contact-card">
+                        <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                        <span class="title">Phone</span>
+                        <span class="detail">+91-7094727176</span>
                     </a>
                 </div>
             </section>
