@@ -23,20 +23,53 @@
 
  <!-- Navbar -->
 <nav class="sticky top-0 bg-white/90 backdrop-blur shadow-sm z-50">
-  <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3">
+  <div class="container mx-auto flex items-center justify-between px-4 py-3">
+    <!-- Logo / Name -->
     <h1 class="text-lg font-bold text-gray-800"></h1>
-    <div class="flex space-x-6 text-sm font-medium">
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-6 text-sm font-medium">
       <a href="#about" class="hover:text-green-700">About</a>
       <a href="#impact" class="hover:text-green-700">Impact</a>
       <a href="#experience" class="hover:text-green-700">Experience</a>
       <a href="#skills" class="hover:text-green-700">Skills</a>
       <a href="#education" class="hover:text-green-700">Education</a>
       <a href="#contact" class="hover:text-green-700">Contact</a>
-      <!-- Resume now matches other links -->
+      <a href="Kanagavel_Balakrishnan_QA_Resume.pdf" download class="hover:text-green-700">Resume</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-gray-800 focus:outline-none text-2xl">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="flex flex-col space-y-2 px-4 py-4 text-sm font-medium">
+      <a href="#about" class="hover:text-green-700">About</a>
+      <a href="#impact" class="hover:text-green-700">Impact</a>
+      <a href="#experience" class="hover:text-green-700">Experience</a>
+      <a href="#skills" class="hover:text-green-700">Skills</a>
+      <a href="#education" class="hover:text-green-700">Education</a>
+      <a href="#contact" class="hover:text-green-700">Contact</a>
       <a href="Kanagavel_Balakrishnan_QA_Resume.pdf" download class="hover:text-green-700">Resume</a>
     </div>
   </div>
 </nav>
+
+<!-- Script to toggle menu -->
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
 
 
   <!-- Hero -->
