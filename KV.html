@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kanagavel Balakrishnan">  
+    <title> Resume | Kanagavel Balakrishnan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Greens and Greys -->
+    <!-- Application Structure Plan: The SPA is a single-page dashboard designed for efficient scanning. It begins with a hero section for immediate context. Key achievements are highlighted upfront with large stat cards to grab attention. The main body is a vertical timeline that acts as an interactive narrative of career progression, with details for each role expanding on demand. This non-linear, scannable structure is chosen over a traditional resume format to better suit a recruiter's workflow and create a more memorable, data-driven experience. -->
+    <!-- Visualization & Content Choices: Report Info: Skills List -> Goal: Compare/Inform -> Viz: Radar Chart -> Interaction: Hover for details -> Justification: Provides a holistic, quick visual summary of strengths. Library: Chart.js. | Report Info: Work History -> Goal: Organize/Change -> Viz: Vertical Interactive Timeline -> Interaction: Click to expand/collapse details -> Justification: Cleans up the UI and focuses user attention on a single career path. Method: HTML/JS. | Report Info: Quantified Achievements -> Goal: Inform/Impact -> Viz: Large Stat Cards -> Interaction: Hover effect -> Justification: Makes key metrics immediately scannable and impressive, supporting the "show, don't tell" principle. Method: HTML/Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F7F5;
+            color: #4A4A4A;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #558B2F;
+            border: 4px solid #F9F7F5;
+            transition: background-color 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            background-color: #8BC34A;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -21px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background-color: #D3E4C6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="sticky-nav bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-800">KB</span>
+                </div>
+                <div class="hidden md:block">
+                    <div id="nav-links" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#profile" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Profile</a>
+                        <a href="#impact" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
+                        <a href="#experience" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#skills" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#education" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <header class="text-center pt-10 pb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Kanagavel Balakrishnan</h1>
+            <p class="text-xl md:text-2xl text-gray-600 mt-2">Quality Assurance Engineer</p>
+            <div class="mt-6 flex justify-center items-center space-x-6 text-gray-500">
+                <a href="mailto:BSKANAGAVEL@GMAIL.COM" class="hover:text-gray-900 transition duration-300">BSKANAGAVEL@GMAIL.COM</a>
+                <span>&bull;</span>
+                <a href="https://www.linkedin.com/in/kanagavelb/" target="_blank" class="hover:text-gray-900 transition duration-300">LinkedIn</a>
+            </div>
+        </header>
+
+        <main>
+            <section id="profile" class="mb-20 pt-16 -mt-16">
+                 <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Professional Profile</h2>
+                 <p class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed">
+                    A results-oriented Quality Assurance Engineer with over 4 years of experience specializing in comprehensive software testing and quality assurance. Proven track record of designing effective test strategies, executing rigorous test cases, and identifying critical defects to ensure product excellence. Proficient in manual and automated testing methodologies, I am committed to delivering reliable and high-performing software solutions.
+                </p>
+            </section>
+            
+            <section id="impact" class="mb-20 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Key Achievements & Impact</h2>
+                 <p class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed mb-10">
+                    Across my roles, I have focused on delivering measurable improvements to product quality and team efficiency. The highlights below showcase key results from my testing and automation efforts, demonstrating a direct impact on bug reduction, user satisfaction, and development velocity.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform duration-300 card-hover">
+                        <p class="text-5xl font-bold text-green-700">30%</p>
+                        <p class="mt-2 text-gray-700 font-semibold">Reduction in Manual Testing</p>
+                        <p class="text-sm text-gray-500 mt-1">Through strategic test automation.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform duration-300 card-hover">
+                        <p class="text-5xl font-bold text-green-700">15%</p>
+                        <p class="mt-2 text-gray-700 font-semibold">Reduction in Critical Bugs</p>
+                        <p class="text-sm text-gray-500 mt-1">Via rigorous manual & automated testing.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center transition-transform duration-300 card-hover">
+                        <p class="text-5xl font-bold text-green-700">20%</p>
+                        <p class="mt-2 text-gray-700 font-semibold">Improvement in User Satisfaction</p>
+                        <p class="text-sm text-gray-500 mt-1">From meticulous end-to-end testing.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="mb-20 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Career Journey</h2>
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="timeline-line"></div>
+                    <div id="timeline-container" class="space-y-12">
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="mb-20 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Core Competencies</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-center text-gray-600 mb-6">This visualization represents my key skill areas, showcasing a balanced expertise across modern QA domains. Hover over a skill to see the associated proficiency. This demonstrates a holistic approach to ensuring software quality, from foundational testing principles to advanced automation and process management.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="education" class="pt-16 -mt-16">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Education</h2>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-xl font-semibold text-gray-800">Bachelor of Engineering (CSE)</p>
+                    <p class="text-md text-gray-600">Anna University</p>
+                    <p class="text-sm text-gray-500 mt-1">2016 - 2020 &bull; CGPA: 7.2/10</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const experienceData = [
+            {
+                role: 'Quality Assurance Engineer',
+                company: 'Murf AI, Bengaluru',
+                period: '2025 – Present',
+                responsibilities: [
+                    'Developed and executed comprehensive API test cases using Postman and REST Assured, validating the functionality and security of RESTful services.',
+                    'Reviewed pull requests (PRs) post-approval to understand feature implementations, ensuring alignment with quality standards.',
+                    'Designed and maintained automation test scripts, reducing manual testing efforts by 30% and improving test coverage.',
+                    'Executed manual and automated tests, documenting results and logging defects in JIRA, leading to a 15% reduction in critical bugs.',
+                    'Performed Functionality, Performance, Security, API, Smoke, and GUI testing to ensure product stability.',
+                    'Actively participated in sprint planning and daily stand-ups, contributing to agile development processes and accelerating project delivery.',
+                    'Conducted end-to-end testing of Murf Studio, focusing on user interactions, voice generation accuracy, and UI/UX consistency, leading to a 20% improvement in user-reported satisfaction.',
+                    'Collaborated directly with the customer support team to promptly address and resolve user-reported issues.',
+                ]
+            },
+            {
+                role: 'Senior Quality Assurance',
+                company: 'Amazon Development Center (Alexa Smart Vehicle - Quattro)',
+                period: '2021 – 2025',
+                responsibilities: [
+                    'Analyzed client requirements to create a robust test plan and strategy.',
+                    'Led daily scrum calls and communicated the test plan using the Business Requirements Document (BRD).',
+                    'Created and executed detailed Test Cases, Test Scenarios, and Test Data.',
+                    'Maintained automation test scripts, consistently monitoring test results to provide feedback.',
+                    'Analyzed test results and reported defects in JIRA.',
+                    'Performed Functionality, Performance, Security, API, Smoke, Sanity, and GUI testing.',
+                    'Collaborated cross-functionally in an Agile/Scrum environment.',
+                    'Facilitated sprint grooming, planning, review, and retrospective meetings.',
+                    'Automated test cases for regression testing, enhancing efficiency and test coverage.',
+                ]
+            },
+            {
+                role: 'Quality Assurance',
+                company: 'Alexa Music Team (MAL)',
+                period: '2020 – 2021',
+                responsibilities: [
+                    'Conducted extensive cross-platform testing across various devices (smartphones, tablets, smart TVs, desktops, web browsers) to ensure consistent performance and compatibility.',
+                    'Collaborated with frontend and backend developers to identify and resolve the root cause of bugs.',
+                    'Raised high-impact defects with many blocker and critical functionality issues, earning R&R awards for quality contributions.',
+                    'Designed and executed detailed test cases for key functionalities, including content playback, user authentication, subscription management, and content recommendations.',
+                    'Conducted localization and internationalization testing to ensure the platform\'s readiness for a global audience.',
+                    'Contributed to enhancing the overall quality of the feature, leading to improved customer satisfaction and retention rates.',
+                    'Testing and signing-off Alexa mobile app APK\'s for FOS, IOS and Android.'
+                ]
+            }
+        ];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Automation Testing', 'API Testing', 'Manual Testing', 'Agile/Scrum', 'Test Planning', 'Tooling (JIRA, etc.)'],
+                    datasets: [{
+                        label: 'Proficiency',
+                        data: [9, 8, 9, 8, 9, 9.5],
+                        backgroundColor: 'rgba(22, 163, 74, 0.2)',
+                        borderColor: 'rgba(22, 163, 74, 1)',
+                        pointBackgroundColor: 'rgba(22, 163, 74, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(22, 163, 74, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: { font: { size: 14 } },
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            ticks: {
+                                display: false 
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            const timelineContainer = document.getElementById('timeline-container');
+            experienceData.forEach((job, index) => {
+                const item = document.createElement('div');
+                item.className = 'relative pl-8';
+                
+                item.innerHTML = `
+                    <div class="timeline-item">
+                        <div class="cursor-pointer group" data-index="${index}">
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-green-700">${job.role}</h3>
+                            <p class="text-lg text-gray-600">${job.company}</p>
+                            <p class="text-xs text-gray-500 mt-1">${job.period}</p>
+                        </div>
+                        <div id="details-${index}" class="hidden mt-4 pl-4 border-l-2 border-green-200">
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                ${job.responsibilities.map(r => `<li>${r}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                timelineContainer.appendChild(item);
+            });
+
+            timelineContainer.addEventListener('click', (e) => {
+                const header = e.target.closest('[data-index]');
+                if (header) {
+                    const index = header.getAttribute('data-index');
+                    const details = document.getElementById(`details-${index}`);
+                    const allDetails = timelineContainer.querySelectorAll('[id^="details-"]');
+                    
+                    allDetails.forEach(el => {
+                        if (el.id !== `details-${index}` && !el.classList.contains('hidden')) {
+                            el.classList.add('hidden');
+                        }
+                    });
+                    
+                    details.classList.toggle('hidden');
+                }
+            });
+
+            document.querySelectorAll('#nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
